@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<center>
+        <div class="row shadow" style="width:100%;background:white;height:auto;margin-bottom:10px;color:wite;border-radius:5px;margin-top:10px">
+            <h1 style="color:blue"><b>Your All Orders</h1>
+        </div>
+    
+    {% for i in user_order %}
+    
+    
+    <div class="row shadow" style="width:90%;background:white;height:auto;margin-bottom:10px;color:wite;border-radius:20px">
+        <div class="col-sm-2" style="margin-bottom:10px;background:yellw;margin-left:10px">
+             <img src="/static/{{i.product.pro_images}}" alt="" width="200px" style="margin-top:5px">
+        </div>
+        <div class="col-sm-7" style="background:ble;margin-left:px;font-size: large;font:menu;text-align:left">
+            <h4><table>
+                <tr>
+                    <td>
+                        Order ID :
+                    </td>
+                    <td>
+                        {{i.id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Product Name :
+                    </td>
+                    <th>
+                        {{i.product.product_name}}
+                    </th>
+                </tr>
+    
+                <tr>
+                    <td>
+                        Product Prize :
+                    </td>
+                    <td>
+                        {{i.price}}{{i.product.quantity_type}}
+                    </td>
+                </tr>
+    
+                  <tr>
+                    <td>
+                        Product Quantity :
+                    </td>
+                    <td>
+                        {{i.quantity}}.
+                    </td>
+                </tr>
+    
+                 <tr>
+                    <td>
+                        Product Prize :
+                    </td>
+                    <th>
+                        Rs. {{i.total_price}}
+                    </th>
+                </tr>
+    
+                 <tr>
+                    <td>
+                        Order Date :
+                    </td>
+                    <td>
+                        {{i.order_data}}
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        Order Time :
+                    </td>
+                    <td>
+                        {{i.order_time}}
+                    </td>
+                </tr>
+    
+                   <tr>
+                    <td>
+                        Address :
+                    </td>
+                    <td>
+                        {{i.order_address}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-sm-1" style="background:cn;margin-left:10px;height:100px;font-size: large;font: menu;border-radius:12px;margin-top:30px">
+            {% if i.status %}
+            <img src="/static/pro_images/success.png" alt="" width="100px" style="border-radius:12px">
+            {% else %}
+            <img src="/static/pro_images/running.jpg" alt="" width="300px" style="border-radius:12px">
+            {% endif %}
+    
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock body %}

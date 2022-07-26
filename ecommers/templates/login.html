@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeShoping.com</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            background-color: rgb(254, 254, 254);
+        }
+        
+        .container {
+            border: 2px solid #0b60813b;
+            margin: 46px 574px;
+            width: 298px;
+            padding: 52px;
+            border-radius: 25px;
+        }
+        
+        .he {
+            font-size: 1.25rem;
+            margin: 58px 638px;
+            color: #319797c7;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="he">
+        <h3><b>Login Here !</b></h3>
+
+
+    </div>
+
+
+    <div class="container">
+        <form action="" method="post">
+            {% if messages %}
+            <div class="alert alert-danger" role="alert" style="padding:5px">
+                {% for i in messages %}
+                <div class="alert-link">{{i}}</div>
+                {% endfor %}
+            </div>
+            {% endif %} {% csrf_token %}
+            <lable class="form-label">Email</lable><br>
+            <input type="email" name="email" class="form-control" style="margin-top:5px"><br>
+            <lable class="form-label">Password</lable><br>
+            <input type="password" name="pass" class="form-control" style="margin-top:5px"><br>
+            <input type="submit" class="btn btn-primary" value="login">
+
+        </form> <br>
+
+        <strong>i don't have account ! <a href="/">Signup</a></strong>
+
+    </div>
+</body>
+
+</html>
